@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/kunzit_block"
+      },
+      {
+        "model": "purpura:block/kunzit_block",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/kunzit_block",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/kunzit_block",
+        "y": 270
+      }
+    ]
+  }
+}

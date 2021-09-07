@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/solarium_ore"
+      },
+      {
+        "model": "purpura:block/solarium_ore",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/solarium_ore",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/solarium_ore",
+        "y": 270
+      }
+    ]
+  }
+}
