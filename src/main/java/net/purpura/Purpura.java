@@ -1,18 +1,28 @@
 package net.purpura;
 
+import com.google.common.collect.Sets;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.purpura.armor.PurpuraArmorMaterial;
 import net.purpura.armor.PurpuraItemTier;
+import net.purpura.blocks.DayChangerBlock;
+import net.purpura.blocks.DayChangerTileEntity;
+import net.purpura.blocks.DayChangerTileEntityRenderer;
 import net.purpura.items.HammerItem;
 
 /**
@@ -93,6 +103,7 @@ public class Purpura {
     public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> PURPURACK = BLOCKS.register("purpurack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
+    public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -104,11 +115,26 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_ORE_ITEM = ITEMS.register("tetraedit_ore",() -> new BlockItem(TETRAEDIT_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_BLOCK_ITEM = ITEMS.register("tetraedit_block",() -> new BlockItem(TETRAEDIT_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURACK_ITEM = ITEMS.register("purpurack",() -> new BlockItem(PURPURACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+
+
+    public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);
+
+    public static final RegistryObject<TileEntityType<DayChangerTileEntity>> DAY_CHANGER_TILE_ENTITY = TILE_ENTITIES.register("day_changer",() -> TileEntityType.Builder.of(DayChangerTileEntity::new,DAY_CHANGER.get()).build(null));
 
     public Purpura() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        bus.addListener(this::onClientSetup);
+
         BLOCKS.register(bus);
         ITEMS.register(bus);
+        TILE_ENTITIES.register(bus);
+    }
+
+    private void onClientSetup(FMLClientSetupEvent event) {
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () -> {
+            ClientRegistry.bindTileEntityRenderer(DAY_CHANGER_TILE_ENTITY.get(), DayChangerTileEntityRenderer::new);
+        });
     }
 }

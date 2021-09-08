@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/day_changer"
+      },
+      {
+        "model": "purpura:block/day_changer",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/day_changer",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/day_changer",
+        "y": 270
+      }
+    ]
+  }
+}
