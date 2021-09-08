@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/purpurrack"
+      },
+      {
+        "model": "purpura:block/purpurrack",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/purpurrack",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/purpurrack",
+        "y": 270
+      }
+    ]
+  }
+}
