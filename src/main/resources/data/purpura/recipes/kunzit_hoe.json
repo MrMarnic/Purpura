@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    " A",
+    " A"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "purpura:kunzit"
+    }
+  },
+  "result": {
+    "item": "purpura:kunzit_hoe"
+  }
+}
