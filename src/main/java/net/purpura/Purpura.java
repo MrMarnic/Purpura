@@ -26,7 +26,7 @@ public class Purpura {
     
     public static final String MODID = "purpura";
 
-    public static ItemGroup PURPURA_ITEMS = new ItemGroup("purpura.item_group") {
+    public static ItemGroup PURPURA_ITEMS = new ItemGroup("purpura_items") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(Purpura.KUNZIT.get());
