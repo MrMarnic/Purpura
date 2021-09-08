@@ -35,7 +35,7 @@ public class DayChangerTileEntityRenderer extends TileEntityRenderer<DayChangerT
         stack.pushPose();
         World level = tileEntity.getLevel();
         IBakedModel model = Minecraft.getInstance().getItemRenderer().getModel(this.watch,level,Minecraft.getInstance().player);
-        stack.translate(0.5,0.9,0.5);
+        stack.translate(0.5,0.77,0.5);
         stack.scale(0.8f,0.8f,0.8f);
         stack.mulPose(Vector3f.XP.rotationDegrees(90.0f));
         Minecraft.getInstance().getItemRenderer().render(watch, ItemCameraTransforms.TransformType.FIXED,true,stack,buffer,combinedLightIn,p_225616_6_,model);
