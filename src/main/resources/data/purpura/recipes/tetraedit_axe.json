@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "XA",
+    " A"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "purpura:tetraedit"
+    }
+  },
+  "result": {
+    "item": "purpura:tetraedit_axe"
+  }
+}
