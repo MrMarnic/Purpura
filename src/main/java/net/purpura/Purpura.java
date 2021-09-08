@@ -100,7 +100,7 @@ public class Purpura {
     public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
-    public static final RegistryObject<Block> PURPURACK = BLOCKS.register("purpurack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
+    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
 
     /**Item Blocks**/
@@ -112,7 +112,7 @@ public class Purpura {
     public static final RegistryObject<Item> KUNZIT_BLOCK_ITEM = ITEMS.register("kunzit_block",() -> new BlockItem(KUNZIT_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_ORE_ITEM = ITEMS.register("tetraedit_ore",() -> new BlockItem(TETRAEDIT_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_BLOCK_ITEM = ITEMS.register("tetraedit_block",() -> new BlockItem(TETRAEDIT_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> PURPURACK_ITEM = ITEMS.register("purpurack",() -> new BlockItem(PURPURACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURRACK_ITEM = ITEMS.register("purpurrack",() -> new BlockItem(PURPURRACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
 
 
