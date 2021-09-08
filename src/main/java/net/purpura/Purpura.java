@@ -47,7 +47,7 @@ public class Purpura {
     public static final RegistryObject<Item> KUNZIT_HELMET = ITEMS.register("kunzit_helmet",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.HEAD,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_CHESTPLATE = ITEMS.register("kunzit_chestplate",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.CHEST,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_LEGGINGS = ITEMS.register("kunzit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> KUNZIT_SHOES = ITEMS.register("kunzit_shoes",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_BOOTS = ITEMS.register("kunzit_boots",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
 
     public static final RegistryObject<Item> KUNZIT_SWORD = ITEMS.register("kunzit_sword",()-> new SwordItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_SHOVEL = ITEMS.register("kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
@@ -60,7 +60,7 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_HELMET = ITEMS.register("tetraedit_helmet",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.HEAD,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_CHESTPLATE = ITEMS.register("tetraedit_chestplate",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.CHEST,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_LEGGINGS = ITEMS.register("tetraedit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_SHOES = ITEMS.register("tetraedit_shoes",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_BOOTS = ITEMS.register("tetraedit_boots",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
 
     public static final RegistryObject<Item> TETRAEDIT_SWORD = ITEMS.register("tetraedit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_SHOVEL = ITEMS.register("tetraedit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
@@ -68,11 +68,13 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_PICKAXE = ITEMS.register("tetraedit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_HOE = ITEMS.register("tetraedit_hoe",()-> new HoeItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
 
-
+    /*
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_HELMET = ITEMS.register("tetraedit_kunzit_helmet",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.HEAD,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_CHESTPLATE = ITEMS.register("tetraedit_kunzit_chestplate",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.CHEST,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_LEGGINGS = ITEMS.register("tetraedit_kunzit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SHOES = ITEMS.register("tetraedit_kunzit_shoes",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_BOOTS = ITEMS.register("tetraedit_kunzit_boots",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
+
+     */
 
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SWORD = ITEMS.register("tetraedit_kunzit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SHOVEL = ITEMS.register("tetraedit_kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));

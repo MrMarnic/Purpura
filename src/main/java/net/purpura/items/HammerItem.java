@@ -4,15 +4,20 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.*;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.world.BlockEvent;
 import net.purpura.Purpura;
 import net.purpura.armor.PurpuraItemTier;
 
@@ -37,7 +42,6 @@ public class HammerItem extends ToolItem {
 
     @Override
     public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, PlayerEntity player) {
-
         List<BlockPos> toBreak = new ArrayList<>();
 
         if((player.getDirection() == Direction.NORTH | player.getDirection() == Direction.SOUTH) && (player.getLookAngle().y >= -0.6 && player.getLookAngle().y <= 0.6)) {
@@ -49,9 +53,22 @@ public class HammerItem extends ToolItem {
         }
 
         for(BlockPos position : toBreak) {
+            BlockState state = player.level.getBlockState(position);
             player.level.removeBlock(position,true);
+            if(!player.isCreative()) {
+                Block.dropResources(state,player.level,position);
+            }
         }
-
         return super.onBlockStartBreak(itemstack, pos, player);
+    }
+
+    @Override
+    public boolean isCorrectToolForDrops(BlockState p_150897_1_) {
+        int i = this.getTier().getLevel();
+        if (p_150897_1_.getHarvestTool() == net.minecraftforge.common.ToolType.PICKAXE) {
+            return i >= p_150897_1_.getHarvestLevel();
+        }
+        Material material = p_150897_1_.getMaterial();
+        return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
     }
 }

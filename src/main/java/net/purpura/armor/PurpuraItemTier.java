@@ -3,19 +3,20 @@ package net.purpura.armor;
 import java.util.function.Supplier;
 
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.LazyValue;
 import net.purpura.Purpura;
 
 public enum PurpuraItemTier implements IItemTier {
-    KUNZIT(0, 59, 2.0F, 0.0F, 15, () -> {
+    KUNZIT(4, 59, 2.0F, 0.0F, 15, () -> {
         return Ingredient.of(Purpura.KUNZIT.get());
     }),
-    TETRAEDIT(0, 59, 2.0F, 0.0F, 15, () -> {
+    TETRAEDIT(4, 59, 2.0F, 0.0F, 15, () -> {
         return Ingredient.of(Purpura.TETRAEDIT.get());
     }),
-    TETRAEDIT_KUNZIT(0, 59, 2.0F, 0.0F, 15, () -> {
+    TETRAEDIT_KUNZIT(4, 59, 8.0F, 3.0F, 10, () -> {
         return Ingredient.of(Purpura.KUNZIT.get()); /* TODO! */
     });
 
