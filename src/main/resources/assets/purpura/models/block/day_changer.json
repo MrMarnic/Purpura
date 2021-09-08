@@ -1,10 +1,10 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "purpura:block/kunzit_ore",
-    "bottom": "purpura:block/kunzit_ore",
-    "top": "purpura:block/kunzit_ore",
-    "side": "purpura:block/day_changer"
+    "particle": "purpura:block/purpurrack",
+    "bottom": "purpura:block/purpurrack",
+    "top": "purpura:block/day_changer_top",
+    "side": "purpura:block/day_changer_side"
   },
   "elements": [
     {

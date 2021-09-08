@@ -41,6 +41,8 @@
   "block.purpura.tetraedit_ore": "Tetraedit Ore",
   "block.purpura.tetraedit_block": "Tetraedit Block",
   "block.purpura.purpurrack": "Purpurrack",
+  "block.purpura.day_changer": "Day Changer",
+  "text.purpura.day_changer_no_solarium": "You need one solarium to influence night and day",
 
   "itemGroup.purpura_items": "Purpura Items"
 }
