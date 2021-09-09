@@ -66,11 +66,11 @@ public class Purpura {
     public static final RegistryObject<Item> KUNZIT_LEGGINGS = ITEMS.register("kunzit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_BOOTS = ITEMS.register("kunzit_boots",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> KUNZIT_SWORD = ITEMS.register("kunzit_sword",()-> new SwordItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> KUNZIT_SHOVEL = ITEMS.register("kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> KUNZIT_AXE = ITEMS.register("kunzit_axe",()-> new AxeItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> KUNZIT_PICKAXE = ITEMS.register("kunzit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> KUNZIT_HOE = ITEMS.register("kunzit_hoe",()-> new HoeItem(PurpuraItemTier.KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_SWORD = ITEMS.register("kunzit_sword",()-> new SwordItem(PurpuraItemTier.KUNZIT,3,-2.4f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_SHOVEL = ITEMS.register("kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.KUNZIT,1.5f,-3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_AXE = ITEMS.register("kunzit_axe",()-> new AxeItem(PurpuraItemTier.KUNZIT,5,-3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_PICKAXE = ITEMS.register("kunzit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.KUNZIT,1,-2.8f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> KUNZIT_HOE = ITEMS.register("kunzit_hoe",()-> new HoeItem(PurpuraItemTier.KUNZIT,-4,0f,new Item.Properties().tab(PURPURA_ITEMS)));
 
 
     public static final RegistryObject<Item> TETRAEDIT = ITEMS.register("tetraedit",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
@@ -79,11 +79,11 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_LEGGINGS = ITEMS.register("tetraedit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_BOOTS = ITEMS.register("tetraedit_boots",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> TETRAEDIT_SWORD = ITEMS.register("tetraedit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_SHOVEL = ITEMS.register("tetraedit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_AXE = ITEMS.register("tetraedit_axe",()-> new AxeItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_PICKAXE = ITEMS.register("tetraedit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_HOE = ITEMS.register("tetraedit_hoe",()-> new HoeItem(PurpuraItemTier.TETRAEDIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_SWORD = ITEMS.register("tetraedit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT,3,-2.4f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_SHOVEL = ITEMS.register("tetraedit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT,1.5f,-3.0f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_AXE = ITEMS.register("tetraedit_axe",()-> new AxeItem(PurpuraItemTier.TETRAEDIT,5,-3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_PICKAXE = ITEMS.register("tetraedit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.TETRAEDIT,1,-2.8f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_HOE = ITEMS.register("tetraedit_hoe",()-> new HoeItem(PurpuraItemTier.TETRAEDIT,-4,0f,new Item.Properties().tab(PURPURA_ITEMS)));
 
 
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_HELMET = ITEMS.register("tetraedit_kunzit_helmet",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.HEAD,new Item.Properties().tab(PURPURA_ITEMS)));
@@ -91,25 +91,25 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_LEGGINGS = ITEMS.register("tetraedit_kunzit_leggings",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.LEGS,new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> TETRAEDIT_KUNZIT_BOOTS = ITEMS.register("tetraedit_kunzit_boots",()-> new ArmorItem(PurpuraArmorMaterial.TETRAEDIT_KUNZIT, EquipmentSlotType.FEET,new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SWORD = ITEMS.register("tetraedit_kunzit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SHOVEL = ITEMS.register("tetraedit_kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_AXE = ITEMS.register("tetraedit_kunzit_axe",()-> new AxeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_PICKAXE = ITEMS.register("tetraedit_kunzit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_HOE = ITEMS.register("tetraedit_kunzit_hoe",()-> new HoeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,2,3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SWORD = ITEMS.register("tetraedit_kunzit_sword",()-> new SwordItem(PurpuraItemTier.TETRAEDIT_KUNZIT,3,-2.4f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_SHOVEL = ITEMS.register("tetraedit_kunzit_shovel",()-> new ShovelItem(PurpuraItemTier.TETRAEDIT_KUNZIT,1.5f,-3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_AXE = ITEMS.register("tetraedit_kunzit_axe",()-> new AxeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,5,-3f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_PICKAXE = ITEMS.register("tetraedit_kunzit_pickaxe",()-> new PickaxeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,1,-2.8f,new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> TETRAEDIT_KUNZIT_HOE = ITEMS.register("tetraedit_kunzit_hoe",()-> new HoeItem(PurpuraItemTier.TETRAEDIT_KUNZIT,-4,0f,new Item.Properties().tab(PURPURA_ITEMS)));
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
-    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
-    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
-    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
-    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
-    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
+    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
+    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
+    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
+    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
+    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
+    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
+    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
+    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
+    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
-    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS)));
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6)));
     public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
 
     /**Item Blocks**/
