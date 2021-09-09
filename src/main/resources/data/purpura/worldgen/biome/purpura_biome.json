@@ -18,5 +18,11 @@
   "spawners": {},
   "spawn_costs": {},
   "carvers": {},
-  "features": []
+  "features": [
+    [
+      "minecraft:oak",
+      "minecraft:seagrass_river",
+      "minecraft:lake_water"
+    ]
+  ]
 }

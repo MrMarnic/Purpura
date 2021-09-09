@@ -1,13 +1,14 @@
 package net.purpura;
 
 import com.google.common.collect.Sets;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Direction;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -109,6 +110,7 @@ public class Purpura {
     public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
     public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS)));
+    public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -122,7 +124,7 @@ public class Purpura {
     public static final RegistryObject<Item> PURPURRACK_ITEM = ITEMS.register("purpurrack",() -> new BlockItem(PURPURRACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURRACK_GRASS_ITEM = ITEMS.register("purpurrack_grass",() -> new BlockItem(PURPURRACK_GRASS.get(),new Item.Properties().tab(PURPURA_ITEMS)));
-
+    public static final RegistryObject<Item> PURPURA_LOG_ITEM = ITEMS.register("purpura_log",() -> new BlockItem(PURPURA_LOG.get(),new Item.Properties().tab(PURPURA_ITEMS)));
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);
 
@@ -149,5 +151,11 @@ public class Purpura {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () -> {
             ClientRegistry.bindTileEntityRenderer(DAY_CHANGER_TILE_ENTITY.get(), DayChangerTileEntityRenderer::new);
         });
+    }
+
+    private static RotatedPillarBlock log(MaterialColor p_235430_0_, MaterialColor p_235430_1_) {
+        return new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, (p_235431_2_) -> {
+            return p_235431_2_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_235430_0_ : p_235430_1_;
+        }).strength(2.0F).sound(SoundType.WOOD));
     }
 }

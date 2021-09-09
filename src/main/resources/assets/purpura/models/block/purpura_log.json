@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "purpura:block/purpura_log_top",
+    "side": "purpura:block/purpura_log_side"
+  }
+}
