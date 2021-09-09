@@ -99,17 +99,17 @@ public class Purpura {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
-    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
-    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
-    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
-    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
-    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
-    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
-    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3)));
-    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6)));
-    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6)));
+    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(2)));
+    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2)));
+    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(2)));
+    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2)));
+    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(4)));
+    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(4)));
+    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(3)));
+    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(3)));
+    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
-    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6)));
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
 
     /**Item Blocks**/
