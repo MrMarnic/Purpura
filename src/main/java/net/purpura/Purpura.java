@@ -51,7 +51,7 @@ public class Purpura {
 
     public static final RegistryObject<Item> SOLARIUM = ITEMS.register("solarium",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", () -> new HammerItem(2,3,PurpuraItemTier.TETRAEDIT_KUNZIT));
+    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer.json", () -> new HammerItem(2,3,PurpuraItemTier.TETRAEDIT_KUNZIT));
     public static final RegistryObject<Item> KUNZIT_HAMMER = ITEMS.register("kunzit_hammer", () -> new HammerItem(2,3,PurpuraItemTier.KUNZIT));
 
     public static final RegistryObject<Item> KUNZIT = ITEMS.register("kunzit",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
@@ -94,7 +94,7 @@ public class Purpura {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
     public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
+    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block.json",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
@@ -106,7 +106,7 @@ public class Purpura {
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> PURPURIUM_BLOCK_ITEM = ITEMS.register("purpurium_block",() -> new BlockItem(PURPURIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURIUM_BLOCK_ITEM = ITEMS.register("purpurium_block.json",() -> new BlockItem(PURPURIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> SOLARIUM_ORE_ITEM = ITEMS.register("solarium_ore",() -> new BlockItem(SOLARIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> SOLARIUM_BLOCK_ITEM = ITEMS.register("solarium_block",() -> new BlockItem(SOLARIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_ORE_ITEM = ITEMS.register("kunzit_ore",() -> new BlockItem(KUNZIT_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));

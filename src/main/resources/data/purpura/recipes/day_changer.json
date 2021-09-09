@@ -16,5 +16,8 @@
       "item": "purpura:purpurrack"
     }
   },
-  "result": {}
+  "result": {
+    "item": "purpura:day_changer",
+    "count": 1
+  }
 }
