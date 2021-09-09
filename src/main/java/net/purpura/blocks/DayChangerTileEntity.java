@@ -11,6 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.purpura.Purpura;
 
 import javax.annotation.Nullable;

@@ -108,6 +108,7 @@ public class Purpura {
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS)));
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -120,6 +121,7 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_BLOCK_ITEM = ITEMS.register("tetraedit_block",() -> new BlockItem(TETRAEDIT_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURRACK_ITEM = ITEMS.register("purpurrack",() -> new BlockItem(PURPURRACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURRACK_GRASS_ITEM = ITEMS.register("purpurrack_grass",() -> new BlockItem(PURPURRACK_GRASS.get(),new Item.Properties().tab(PURPURA_ITEMS)));
 
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);

@@ -43,6 +43,9 @@
   "block.purpura.tetraedit_block": "Tetraedit Block",
   "block.purpura.purpurrack": "Purpurrack",
   "block.purpura.day_changer": "Tageswandler",
+  "block.purpura.purpurrack_grass": "Purpurrack Gras",
+
+
   "text.purpura.day_changer_no_solarium": "Du brauchst vier Solarium um den Tag-Nacht Zyklus zu beeinflussen",
   "text.purpura.day_changer_used": "Ein anderer Tageswandler wird derzeit benutzt",
 

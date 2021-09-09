@@ -43,6 +43,9 @@
   "block.purpura.tetraedit_block": "Tetraedit Block",
   "block.purpura.purpurrack": "Purpurrack",
   "block.purpura.day_changer": "Day Changer",
+  "block.purpura.purpurrack_grass": "Purpurrack Grass",
+
+
   "text.purpura.day_changer_no_solarium": "You need four solarium to influence night and day",
   "text.purpura.day_changer_used": "A different day changer is already in use",
 
