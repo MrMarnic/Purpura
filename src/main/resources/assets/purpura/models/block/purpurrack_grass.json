@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "purpura:block/purpurrack_grass_side",
+    "north": "minecraft:block/purpurrack_grass_side",
+    "south": "minecraft:block/purpurrack_grass_side",
+    "east": "minecraft:block/purpurrack_grass_side",
+    "west": "minecraft:block/purpurrack_grass_side",
+    "up": "minecraft:block/purpurrack_grass_top",
+    "down": "minecraft:block/purpurrack"
+  }
+}

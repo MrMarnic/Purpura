@@ -8,6 +8,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.DimensionType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,6 +26,9 @@ import net.purpura.blocks.DayChangerBlock;
 import net.purpura.blocks.DayChangerTileEntity;
 import net.purpura.blocks.DayChangerTileEntityRenderer;
 import net.purpura.items.HammerItem;
+import net.purpura.packet.PurpuraPacketHandler;
+
+import java.util.HashMap;
 
 /**
  * Copyright (c) 07.09.2021
@@ -33,7 +38,7 @@ import net.purpura.items.HammerItem;
 
 @Mod("purpura")
 public class Purpura {
-    
+
     public static final String MODID = "purpura";
 
     public static ItemGroup PURPURA_ITEMS = new ItemGroup("purpura_items") {
@@ -51,7 +56,7 @@ public class Purpura {
 
     public static final RegistryObject<Item> SOLARIUM = ITEMS.register("solarium",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer.json", () -> new HammerItem(2,3,PurpuraItemTier.TETRAEDIT_KUNZIT));
+    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", () -> new HammerItem(2,3,PurpuraItemTier.TETRAEDIT_KUNZIT));
     public static final RegistryObject<Item> KUNZIT_HAMMER = ITEMS.register("kunzit_hammer", () -> new HammerItem(2,3,PurpuraItemTier.KUNZIT));
 
     public static final RegistryObject<Item> KUNZIT = ITEMS.register("kunzit",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
@@ -94,7 +99,7 @@ public class Purpura {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
     public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
-    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block.json",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
+    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
@@ -103,10 +108,11 @@ public class Purpura {
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS)));
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
-    public static final RegistryObject<Item> PURPURIUM_BLOCK_ITEM = ITEMS.register("purpurium_block.json",() -> new BlockItem(PURPURIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURIUM_BLOCK_ITEM = ITEMS.register("purpurium_block",() -> new BlockItem(PURPURIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> SOLARIUM_ORE_ITEM = ITEMS.register("solarium_ore",() -> new BlockItem(SOLARIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> SOLARIUM_BLOCK_ITEM = ITEMS.register("solarium_block",() -> new BlockItem(SOLARIUM_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_ORE_ITEM = ITEMS.register("kunzit_ore",() -> new BlockItem(KUNZIT_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -115,20 +121,28 @@ public class Purpura {
     public static final RegistryObject<Item> TETRAEDIT_BLOCK_ITEM = ITEMS.register("tetraedit_block",() -> new BlockItem(TETRAEDIT_BLOCK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURRACK_ITEM = ITEMS.register("purpurrack",() -> new BlockItem(PURPURRACK.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURRACK_GRASS_ITEM = ITEMS.register("purpurrack_grass",() -> new BlockItem(PURPURRACK_GRASS.get(),new Item.Properties().tab(PURPURA_ITEMS)));
 
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);
 
     public static final RegistryObject<TileEntityType<DayChangerTileEntity>> DAY_CHANGER_TILE_ENTITY = TILE_ENTITIES.register("day_changer",() -> TileEntityType.Builder.of(DayChangerTileEntity::new,DAY_CHANGER.get()).build(null));
 
+    public static HashMap<DimensionType,Boolean> DAY_CHANGER_USED = new HashMap<>();
+
     public Purpura() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         bus.addListener(this::onClientSetup);
+        bus.addListener(this::onCommonSetup);
 
         BLOCKS.register(bus);
         ITEMS.register(bus);
         TILE_ENTITIES.register(bus);
+    }
+
+    private void onCommonSetup(FMLCommonSetupEvent event) {
+        PurpuraPacketHandler.registerPackets();
     }
 
     private void onClientSetup(FMLClientSetupEvent event) {

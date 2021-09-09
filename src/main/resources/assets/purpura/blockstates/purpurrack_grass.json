@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/purpurrack_grass"
+      },
+      {
+        "model": "purpura:block/purpurrack_grass",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/purpurrack_grass",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/purpurrack_grass",
+        "y": 270
+      }
+    ]
+  }
+}

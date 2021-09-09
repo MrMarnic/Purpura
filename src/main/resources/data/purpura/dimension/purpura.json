@@ -1,0 +1,12 @@
+{
+  "type": "purpura:purpura",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": -386500393,
+    "settings": "purpura:purpura_noise_settings",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "purpura:purpura_biome"
+    }
+  }
+}

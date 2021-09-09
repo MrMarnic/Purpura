@@ -41,10 +41,18 @@ public class DayChangerTileEntityRenderer extends TileEntityRenderer<DayChangerT
         Minecraft.getInstance().getItemRenderer().render(watch, ItemCameraTransforms.TransformType.FIXED,true,stack,buffer,combinedLightIn,p_225616_6_,model);
         stack.popPose();
 
-        //renderSolarium(tileEntity,0.1f,0.1f,level,stack,buffer,combinedLightIn,p_225616_6_,-1.0f,0);
-        //renderSolarium(tileEntity,0.9f,0.9f,level,stack,buffer,combinedLightIn,p_225616_6_,-1.0f,1);
-        renderSolarium(tileEntity,0.9f,0.1f,level,stack,buffer,combinedLightIn,p_225616_6_,1.0f,2);
-        //renderSolarium(tileEntity,0.1f,0.9f,level,stack,buffer,combinedLightIn,p_225616_6_,1.0f,3);
+        if(tileEntity.solarium[0]) {
+            renderSolarium(tileEntity,0.1f,0.1f,level,stack,buffer,combinedLightIn,p_225616_6_,-1.0f,0);
+        }
+        if(tileEntity.solarium[1]) {
+            renderSolarium(tileEntity,0.9f,0.9f,level,stack,buffer,combinedLightIn,p_225616_6_,-1.0f,1);
+        }
+        if(tileEntity.solarium[2]) {
+            renderSolarium(tileEntity,0.9f,0.1f,level,stack,buffer,combinedLightIn,p_225616_6_,1.0f,2);
+        }
+        if(tileEntity.solarium[3]) {
+            renderSolarium(tileEntity,0.1f,0.9f,level,stack,buffer,combinedLightIn,p_225616_6_,1.0f,3);
+        }
     }
 
     private void renderSolarium(DayChangerTileEntity tileEntity,float posX, float posZ, World level,MatrixStack stack, IRenderTypeBuffer buffer, int combinedLightIn, int p_225616_6_, float inverseRot,int index) {
@@ -96,20 +104,22 @@ public class DayChangerTileEntityRenderer extends TileEntityRenderer<DayChangerT
         } else if(tileEntity.animationStage==2) {
             stack.pushPose();
             IBakedModel model2 = Minecraft.getInstance().getItemRenderer().getModel(this.solarium,level,Minecraft.getInstance().player);
-            stack.translate(Math.sin(tileEntity.mov[index]),0.77 + tileEntity.height[index],Math.cos(tileEntity.mov[index]));
+            stack.translate(0.5 + Math.sin(Math.toRadians(tileEntity.mov[index])) * 0.5656,0.77 + tileEntity.height[index],0.5 + Math.cos(Math.toRadians(tileEntity.mov[index])) * 0.5656);
             stack.scale(0.35f,0.35f,0.35f);
             stack.mulPose(Vector3f.XP.rotationDegrees(90.0f - tileEntity.rot[index]));
-            stack.mulPose(Vector3f.YP.rotationDegrees(-tileEntity.rY[index] * inverseRot));
+            stack.mulPose(Vector3f.YP.rotationDegrees(tileEntity.mov[index] - tileEntity.standardRot[index] -tileEntity.rY[index] * inverseRot));
 
             Minecraft.getInstance().getItemRenderer().render(solarium, ItemCameraTransforms.TransformType.FIXED,true,stack,buffer,combinedLightIn,p_225616_6_,model2);
             stack.popPose();
 
-            if (tileEntity.mov[index] <= 360.0) {
-                tileEntity.mov[index] += Minecraft.getInstance().getDeltaFrameTime() * 0.01;
+            if(tileEntity.mov[index] <= 360.0) {
+                tileEntity.mov[index] += Minecraft.getInstance().getDeltaFrameTime() * tileEntity.rotSpeed;
             } else {
                 tileEntity.mov[index] = 0.0f;
-                tileEntity.mov[index] += Minecraft.getInstance().getDeltaFrameTime() * 0.01;
+                tileEntity.mov[index] += Minecraft.getInstance().getDeltaFrameTime() * tileEntity.rotSpeed;
             }
+
+            tileEntity.rotSpeed += Minecraft.getInstance().getDeltaFrameTime() * 0.1;
         }
     }
 }
