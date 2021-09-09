@@ -15,6 +15,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.RegistryObject;
@@ -104,17 +105,17 @@ public class Purpura {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
 
-    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(2)));
-    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2)));
-    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(2)));
-    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2)));
-    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(4)));
-    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(4)));
-    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(3)));
-    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(3)));
-    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PURPURIUM_ORE = BLOCKS.register("purpurium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).harvestLevel(2).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> PURPURIUM_BLOCK = BLOCKS.register("purpurium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> SOLARIUM_ORE = BLOCKS.register("solarium_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(2).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> SOLARIUM_BLOCK = BLOCKS.register("solarium_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(2).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> KUNZIT_ORE = BLOCKS.register("kunzit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
-    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE)));
     public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
     public static final RegistryObject<Block> PURPURA_PORTAL = BLOCKS.register("purpura_portal", () -> new PurpuraPortalBlock(AbstractBlock.Properties.of(Material.GLASS).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel((p_235463_0_) -> {
         return 11;
@@ -169,6 +170,6 @@ public class Purpura {
     private static RotatedPillarBlock log(MaterialColor p_235430_0_, MaterialColor p_235430_1_) {
         return new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, (p_235431_2_) -> {
             return p_235431_2_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_235430_0_ : p_235430_1_;
-        }).strength(2.0F).sound(SoundType.WOOD));
+        }).strength(2.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE));
     }
 }
