@@ -2,6 +2,7 @@ package net.purpura.armor;
 
 import java.util.function.Supplier;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
@@ -13,14 +14,14 @@ import net.purpura.Purpura;
 
 public enum PurpuraArmorMaterial implements IArmorMaterial {
 
-    KUNZIT("kunzit", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
+    KUNZIT("kunzit", 44, new int[]{5, 8, 10, 5}, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0F, 0.4F, () -> {
         return Ingredient.of(Purpura.KUNZIT.get());
     }),
-    TETRAEDIT("tetraedit", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
+    TETRAEDIT("tetraedit", 37, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
         return Ingredient.of(Purpura.TETRAEDIT.get());
     }),
 
-    TETRAEDIT_KUNZIT("tetraedit_kunzit", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
+    TETRAEDIT_KUNZIT("tetraedit_kunzit", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.2F, () -> {
         return Ingredient.of(Purpura.KUNZIT.get());
     });
 

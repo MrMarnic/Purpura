@@ -43,7 +43,7 @@ public class DayChangerBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
 
     public DayChangerBlock() {
-        super(Properties.of(Material.METAL));
+        super(Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops());
     }
 
     @Override

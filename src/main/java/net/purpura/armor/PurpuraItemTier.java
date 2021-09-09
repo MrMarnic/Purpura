@@ -10,13 +10,13 @@ import net.minecraft.util.LazyValue;
 import net.purpura.Purpura;
 
 public enum PurpuraItemTier implements IItemTier {
-    KUNZIT(4, 59, 2.0F, 0.0F, 15, () -> {
+    KUNZIT(4, 3031, 10.0F, 5.5F, 20, () -> {
         return Ingredient.of(Purpura.KUNZIT.get());
     }),
-    TETRAEDIT(4, 59, 2.0F, 0.0F, 15, () -> {
+    TETRAEDIT(4, 2031, 9.0F, 4.0F, 15, () -> {
         return Ingredient.of(Purpura.TETRAEDIT.get());
     }),
-    TETRAEDIT_KUNZIT(4, 59, 8.0F, 3.0F, 10, () -> {
+    TETRAEDIT_KUNZIT(4, 2531, 9.5F, 4.5F, 17, () -> {
         return Ingredient.of(Purpura.KUNZIT.get()); /* TODO! */
     });
 
