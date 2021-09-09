@@ -11,7 +11,7 @@
         }
     },
     "result": {
-        "block": "purpura:purpurium_block",
+        "item": "purpura:purpurium_block",
         "count": 1
     }
 }
