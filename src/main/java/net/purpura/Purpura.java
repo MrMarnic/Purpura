@@ -51,7 +51,8 @@ public class Purpura {
 
     public static final RegistryObject<Item> SOLARIUM = ITEMS.register("solarium",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
 
-    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", HammerItem::new);
+    public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", () -> new HammerItem(2,3,PurpuraItemTier.TETRAEDIT_KUNZIT));
+    public static final RegistryObject<Item> KUNZIT_HAMMER = ITEMS.register("kunzit_hammer", () -> new HammerItem(2,3,PurpuraItemTier.KUNZIT));
 
     public static final RegistryObject<Item> KUNZIT = ITEMS.register("kunzit",()-> new Item(new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> KUNZIT_HELMET = ITEMS.register("kunzit_helmet",()-> new ArmorItem(PurpuraArmorMaterial.KUNZIT, EquipmentSlotType.HEAD,new Item.Properties().tab(PURPURA_ITEMS)));

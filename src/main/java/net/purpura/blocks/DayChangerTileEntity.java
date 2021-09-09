@@ -10,7 +10,18 @@ import net.purpura.Purpura;
  * GitHub: https://github.com/MrMarnic
  */
 public class DayChangerTileEntity extends TileEntity {
+
+    public float[] height;
+    public float[] rot;
+    public float[] rY;
+    public float[] mov;
+    public int animationStage = 0;
+
     public DayChangerTileEntity() {
         super(Purpura.DAY_CHANGER_TILE_ENTITY.get());
+        this.height = new float[] {0f,0f,0f,0f};
+        this.rot = new float[] {0f,0f,0f,0f};
+        this.rY = new float[] {0f,0f,0f,0f};
+        this.mov = new float[] {0f,0f,0f,0f};
     }
 }

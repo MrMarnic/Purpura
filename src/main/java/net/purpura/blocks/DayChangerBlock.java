@@ -45,7 +45,7 @@ public class DayChangerBlock extends Block {
     public ActionResultType use(BlockState p_225533_1_, World world, BlockPos p_225533_3_, PlayerEntity player, Hand hand, BlockRayTraceResult p_225533_6_) {
         if(hand == Hand.MAIN_HAND) {
             if(!world.isClientSide()) {
-
+                /*
                 if(player.inventory.hasAnyOf(Sets.newHashSet(Purpura.SOLARIUM.get()))) {
                     ServerWorld serverWorld = (ServerWorld) world;
 
@@ -65,6 +65,11 @@ public class DayChangerBlock extends Block {
                 } else {
                     player.sendMessage(new TranslationTextComponent("text.purpura.day_changer_no_solarium"), Util.NIL_UUID);
                 }
+                 */
+            } else {
+                DayChangerTileEntity dayChangerTileEntity = (DayChangerTileEntity) world.getBlockEntity(p_225533_3_);
+
+                dayChangerTileEntity.animationStage = 1;
             }
         }
         return super.use(p_225533_1_, world, p_225533_3_, player, hand, p_225533_6_);
