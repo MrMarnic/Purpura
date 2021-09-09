@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "purpura_purpurrack_grass"
+          "name": "purpura:purpurrack_grass"
         }
       ],
       "conditions": [
