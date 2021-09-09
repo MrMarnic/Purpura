@@ -9,7 +9,11 @@ import net.minecraft.item.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -26,6 +30,7 @@ import net.purpura.armor.PurpuraItemTier;
 import net.purpura.blocks.DayChangerBlock;
 import net.purpura.blocks.DayChangerTileEntity;
 import net.purpura.blocks.DayChangerTileEntityRenderer;
+import net.purpura.blocks.PurpuraPortalBlock;
 import net.purpura.items.HammerItem;
 import net.purpura.packet.PurpuraPacketHandler;
 
@@ -109,8 +114,12 @@ public class Purpura {
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE)));
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
-    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS)));
+    public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).sound(SoundType.GLASS)));
     public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
+    public static final RegistryObject<Block> PURPURA_PORTAL = BLOCKS.register("purpura_portal", () -> new PurpuraPortalBlock(AbstractBlock.Properties.of(Material.GLASS).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel((p_235463_0_) -> {
+        return 11;
+    })));
+
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -129,8 +138,12 @@ public class Purpura {
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);
 
     public static final RegistryObject<TileEntityType<DayChangerTileEntity>> DAY_CHANGER_TILE_ENTITY = TILE_ENTITIES.register("day_changer",() -> TileEntityType.Builder.of(DayChangerTileEntity::new,DAY_CHANGER.get()).build(null));
+    //NetherPortalBlock
+    public static final RegistryKey<World> PURPURA_DIMENSION = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(Purpura.MODID,"purpura"));
+    //FlintAndSteelItem
 
     public static HashMap<DimensionType,Boolean> DAY_CHANGER_USED = new HashMap<>();
+
 
     public Purpura() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

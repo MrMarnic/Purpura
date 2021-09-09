@@ -15,7 +15,46 @@
     "foliage_color": 13123530
   },
   "starts": [],
-  "spawners": {},
+  "spawners": {
+    "monster": [
+      {
+        "type": "minecraft:witch",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      },
+      {
+        "type": "minecraft:endermite",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      },
+      {
+        "type": "minecraft:enderman",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      },
+      {
+        "type": "minecraft:creeper",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      },
+      {
+        "type": "minecraft:skeleton",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      },
+      {
+        "type": "minecraft:zombie",
+        "weight": 10,
+        "minCount": 10,
+        "maxCount": 100
+      }
+    ]
+  },
   "spawn_costs": {},
   "carvers": {},
   "features": [

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "purpura:block/purpura_portal_ns"
+    },
+    "axis=z": {
+      "model": "purpura:block/purpura_portal_ew"
+    }
+  }
+}
