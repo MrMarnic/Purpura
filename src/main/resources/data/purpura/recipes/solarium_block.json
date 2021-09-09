@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "purpura:solraium"
+      "item": "purpura:solarium"
     }
   },
   "result": {
-    "item": "purpura:solarium_block",
+    "block": "purpura:solarium_block",
     "count": 1
   }
 }
