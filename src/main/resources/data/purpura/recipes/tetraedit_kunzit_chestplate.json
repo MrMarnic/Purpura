@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "iDi",
+    "iDi"
+  ],
+  "key": {
+    "i": {
+      "item": "purpura:tetraedit"
+    },
+    "D": {
+      "item": "purpura:kunzit"
+    }
+  },
+  "result": {
+    "item": "purpura:tetraedit_kunzit_chestplate",
+    "count": 1
+  }
+}

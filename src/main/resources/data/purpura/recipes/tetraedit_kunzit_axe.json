@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#i",
+    "i/",
+    " /"
+  ],
+  "key": {
+    "#": {
+      "item": "purpura:kunzit"
+    },
+    "i": {
+      "item": "purpura:tetraedit"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "purpura:tetraedit_kunzit_axe",
+    "count": 1
+  }
+}

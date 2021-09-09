@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "D D"
+  ],
+  "key": {
+    "i": {
+      "item": "purpura:tetraedit"
+    },
+    "D": {
+      "item": "purpura:kunzit"
+    }
+  },
+  "result": {
+    "item": "purpura:tetraedit_kunzit_boots",
+    "count": 1
+  }
+}
