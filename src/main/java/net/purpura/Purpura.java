@@ -4,17 +4,30 @@ import com.google.common.collect.Sets;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraft.world.DimensionType;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -28,12 +41,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.purpura.armor.PurpuraArmorMaterial;
 import net.purpura.armor.PurpuraItemTier;
-import net.purpura.blocks.DayChangerBlock;
-import net.purpura.blocks.DayChangerTileEntity;
-import net.purpura.blocks.DayChangerTileEntityRenderer;
-import net.purpura.blocks.PurpuraPortalBlock;
+import net.purpura.blocks.*;
+import net.purpura.events.PurpuraForgeEvents;
+import net.purpura.features.PurpuraFeatures;
 import net.purpura.items.HammerItem;
 import net.purpura.packet.PurpuraPacketHandler;
+import net.purpura.tree.PurpuraTree;
 
 import java.util.HashMap;
 
@@ -113,14 +126,16 @@ public class Purpura {
     public static final RegistryObject<Block> KUNZIT_BLOCK = BLOCKS.register("kunzit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(4).harvestTool(ToolType.PICKAXE)));
     public static final RegistryObject<Block> TETRAEDIT_ORE = BLOCKS.register("tetraedit_ore",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops().harvestLevel(3).harvestTool(ToolType.PICKAXE)));
     public static final RegistryObject<Block> TETRAEDIT_BLOCK = BLOCKS.register("tetraedit_block",() -> new Block(AbstractBlock.Properties.of(Material.METAL).strength(5, 6).requiresCorrectToolForDrops().harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",() -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(2, 6).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> PURPURRACK = BLOCKS.register("purpurrack",Purpurrack::new);
     public static final RegistryObject<Block> DAY_CHANGER = BLOCKS.register("day_changer", DayChangerBlock::new);
     public static final RegistryObject<Block> PURPURRACK_GRASS = BLOCKS.register("purpurrack_grass", () -> new Block(AbstractBlock.Properties.of(Material.GRASS).strength(2, 6).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE)));
     public static final RegistryObject<Block> PURPURA_LOG = BLOCKS.register("purpura_log", () -> log(MaterialColor.COLOR_PINK,MaterialColor.STONE));
     public static final RegistryObject<Block> PURPURA_PORTAL = BLOCKS.register("purpura_portal", () -> new PurpuraPortalBlock(AbstractBlock.Properties.of(Material.GLASS).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel((p_235463_0_) -> {
         return 11;
     })));
-
+    public static final RegistryObject<Block> PURPURA_SAPLING = BLOCKS.register("purpura_sapling", PurpuraSapling::new);
+    public static final RegistryObject<Block> PURPURA_LEAVES = BLOCKS.register("purpura_leaves",Purpura::leaves);
+    public static final RegistryObject<Block> PURPURA_PLANKS = BLOCKS.register("purpura_planks",() -> new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE)));
 
     /**Item Blocks**/
     public static final RegistryObject<Item> PURPURIUM_ORE_ITEM = ITEMS.register("purpurium_ore",() -> new BlockItem(PURPURIUM_ORE.get(),new Item.Properties().tab(PURPURA_ITEMS)));
@@ -135,16 +150,21 @@ public class Purpura {
     public static final RegistryObject<Item> DAY_CHANGER_ITEM = ITEMS.register("day_changer",() -> new BlockItem(DAY_CHANGER.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURRACK_GRASS_ITEM = ITEMS.register("purpurrack_grass",() -> new BlockItem(PURPURRACK_GRASS.get(),new Item.Properties().tab(PURPURA_ITEMS)));
     public static final RegistryObject<Item> PURPURA_LOG_ITEM = ITEMS.register("purpura_log",() -> new BlockItem(PURPURA_LOG.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURA_SAPLING_ITEM = ITEMS.register("purpura_sapling",() -> new BlockItem(PURPURA_SAPLING.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURA_LEAVES_ITEM = ITEMS.register("purpura_leaves",() -> new BlockItem(PURPURA_LEAVES.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+    public static final RegistryObject<Item> PURPURA_PLANKS_ITEM = ITEMS.register("purpura_planks",() -> new BlockItem(PURPURA_PLANKS.get(),new Item.Properties().tab(PURPURA_ITEMS)));
+
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MODID);
 
     public static final RegistryObject<TileEntityType<DayChangerTileEntity>> DAY_CHANGER_TILE_ENTITY = TILE_ENTITIES.register("day_changer",() -> TileEntityType.Builder.of(DayChangerTileEntity::new,DAY_CHANGER.get()).build(null));
-    //NetherPortalBlock
+
     public static final RegistryKey<World> PURPURA_DIMENSION = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(Purpura.MODID,"purpura"));
-    //FlintAndSteelItem
+    public static final RegistryKey<Biome> PURPURA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Purpura.MODID,"purpura_biome"));
+
+    public static final IBlockColor PURPURA_LEAVES_COLOR = new PurpuraLeavesBlockColor();
 
     public static HashMap<DimensionType,Boolean> DAY_CHANGER_USED = new HashMap<>();
-
 
     public Purpura() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -164,6 +184,7 @@ public class Purpura {
     private void onClientSetup(FMLClientSetupEvent event) {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () -> {
             ClientRegistry.bindTileEntityRenderer(DAY_CHANGER_TILE_ENTITY.get(), DayChangerTileEntityRenderer::new);
+            RenderTypeLookup.setRenderLayer(Purpura.PURPURA_SAPLING.get(), RenderType.cutoutMipped());
         });
     }
 
@@ -171,5 +192,17 @@ public class Purpura {
         return new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, (p_235431_2_) -> {
             return p_235431_2_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? p_235430_0_ : p_235430_1_;
         }).strength(2.0F).sound(SoundType.WOOD).harvestTool(ToolType.AXE));
+    }
+
+    private static LeavesBlock leaves() {
+        return new LeavesBlock(AbstractBlock.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Purpura::ocelotOrParrot).isSuffocating(Purpura::never).isViewBlocking(Purpura::never));
+    }
+
+    private static Boolean ocelotOrParrot(BlockState p_235441_0_, IBlockReader p_235441_1_, BlockPos p_235441_2_, EntityType<?> p_235441_3_) {
+        return p_235441_3_ == EntityType.OCELOT || p_235441_3_ == EntityType.PARROT;
+    }
+
+    private static boolean never(BlockState p_235436_0_, IBlockReader p_235436_1_, BlockPos p_235436_2_) {
+        return false;
     }
 }

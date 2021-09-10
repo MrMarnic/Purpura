@@ -2,11 +2,61 @@
   "type": "purpura:purpura",
   "generator": {
     "type": "minecraft:noise",
-    "seed": -386500393,
+    "seed": 171778191,
     "settings": "purpura:purpura_noise_settings",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "purpura:purpura_biome"
+      "type": "minecraft:multi_noise",
+      "seed": 171778191,
+      "altitude_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "temperature_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "humidity_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "weirdness_noise": {
+        "firstOctave": -7,
+        "amplitudes": [
+          1,
+          1
+        ]
+      },
+      "biomes": [
+        {
+          "biome": "purpura:purpura_biome_wasteland",
+          "parameters": {
+            "altitude": 0,
+            "temperature": 0,
+            "humidity": 0,
+            "weirdness": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "purpura:purpura_biome",
+          "parameters": {
+            "altitude": 0.2,
+            "temperature": 0.2,
+            "humidity": 0.2,
+            "weirdness": 0.2,
+            "offset": 0
+          }
+        }
+      ]
     }
   }
 }
