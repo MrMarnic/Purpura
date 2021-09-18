@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "purpura:block/purpura_planks"
+      },
+      {
+        "model": "purpura:block/purpura_planks",
+        "y": 90
+      },
+      {
+        "model": "purpura:block/purpura_planks",
+        "y": 180
+      },
+      {
+        "model": "purpura:block/purpura_planks",
+        "y": 270
+      }
+    ]
+  }
+}
