@@ -24,7 +24,7 @@ public class PurpuraFeatures {
 
     public static final ConfiguredFeature<?, ?> ORE_PURPURIUM = register("ore_purpurium", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, Purpura.PURPURIUM_ORE.get().defaultBlockState(), 9)).range(64).squared().count(20));
     public static final ConfiguredFeature<?, ?> ORE_SOLARIUM = register("ore_solarium", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Purpura.SOLARIUM_ORE.get().defaultBlockState(), 9)).range(64).squared().count(20));
-    public static final ConfiguredFeature<?, ?> ORE_KUNZIT = register("ore_kunzit", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(Purpura.PURPURRACK.get()), Purpura.KUNZIT_ORE.get().defaultBlockState(), 14)).range(32).squared().count(2));
+    public static final ConfiguredFeature<?, ?> ORE_KUNZIT = register("ore_kunzit", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(Purpura.PURPURRACK.get()), Purpura.KUNZIT_ORE.get().defaultBlockState(), 8)).range(16).squared());
     public static final ConfiguredFeature<?, ?> ORE_TETRAEDIT = register("ore_tetraedit", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(Purpura.PURPURRACK.get()), Purpura.TETRAEDIT_ORE.get().defaultBlockState(), 9)).range(64).squared().count(20));
 
     public static <FC extends IFeatureConfig>ConfiguredFeature<FC,?> register(String name, ConfiguredFeature<FC,?> feature) {
