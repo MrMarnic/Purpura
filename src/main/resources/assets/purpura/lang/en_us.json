@@ -44,6 +44,10 @@
   "block.purpura.purpurrack": "Purpurrack",
   "block.purpura.day_changer": "Day Changer",
   "block.purpura.purpurrack_grass": "Purpurrack Grass",
+  "block.purpura.purpura_log": "Purpura Log",
+  "block.purpura.purpura_sapling": "Purpura Sapling",
+  "block.purpura.purpura_planks": "Purpura Planks",
+  "block.purpura.purprua_leaves": "Purpura Leaves",
 
 
   "text.purpura.day_changer_no_solarium": "You need four solarium to influence night and day",

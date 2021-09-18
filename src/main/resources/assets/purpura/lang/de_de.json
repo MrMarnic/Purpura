@@ -44,7 +44,10 @@
   "block.purpura.purpurrack": "Purpurrack",
   "block.purpura.day_changer": "Tageswandler",
   "block.purpura.purpurrack_grass": "Purpurrack Gras",
-
+  "block.purpura.purpura_log": "Purpura Stamm",
+  "block.purpura.purpura_sapling": "Purpura Setzling",
+"block.purpura.purpura_planks": "Purpura Bretter",
+  "block.purpura.purprua_leaves": "Purpura Blätter",
 
   "text.purpura.day_changer_no_solarium": "Du brauchst vier Solarium um den Tag-Nacht Zyklus zu beeinflussen",
   "text.purpura.day_changer_used": "Ein anderer Tageswandler wird derzeit benutzt",
