@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "purpura:purpura_log"
+    }
+  ],
+  "result": {
+    "item": "purpura:purpura_planks",
+    "count": 4
+  }
+}
