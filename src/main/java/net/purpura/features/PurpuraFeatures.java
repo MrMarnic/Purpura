@@ -1,5 +1,6 @@
 package net.purpura.features;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -7,6 +8,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
+import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import net.purpura.Purpura;
 
@@ -26,6 +29,9 @@ public class PurpuraFeatures {
     public static final ConfiguredFeature<?, ?> ORE_SOLARIUM = register("ore_solarium", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Purpura.SOLARIUM_ORE.get().defaultBlockState(), 9)).range(64).squared().count(20));
     public static final ConfiguredFeature<?, ?> ORE_KUNZIT = register("ore_kunzit", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(Purpura.PURPURRACK.get()), Purpura.KUNZIT_ORE.get().defaultBlockState(), 8)).range(16).squared());
     public static final ConfiguredFeature<?, ?> ORE_TETRAEDIT = register("ore_tetraedit", Feature.ORE.configured(new OreFeatureConfig(new BlockMatchRuleTest(Purpura.PURPURRACK.get()), Purpura.TETRAEDIT_ORE.get().defaultBlockState(), 9)).range(64).squared().count(20));
+
+    public static final ConfiguredFeature<?, ?> LAKE_WATER = register("lake_water", Feature.LAKE.configured(new BlockStateFeatureConfig(Blocks.WATER.defaultBlockState())).decorated(Placement.WATER_LAKE.configured(new ChanceConfig(4))));
+
 
     public static <FC extends IFeatureConfig>ConfiguredFeature<FC,?> register(String name, ConfiguredFeature<FC,?> feature) {
         return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,name,feature);

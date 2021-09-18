@@ -71,4 +71,10 @@ public class HammerItem extends ToolItem {
         Material material = p_150897_1_.getMaterial();
         return material == Material.STONE || material == Material.METAL || material == Material.HEAVY_METAL;
     }
+
+    @Override
+    public float getDestroySpeed(ItemStack p_150893_1_, BlockState p_150893_2_) {
+        Material material = p_150893_2_.getMaterial();
+        return material != Material.METAL && material != Material.HEAVY_METAL && material != Material.STONE ? super.getDestroySpeed(p_150893_1_, p_150893_2_) : this.speed;
+    }
 }
