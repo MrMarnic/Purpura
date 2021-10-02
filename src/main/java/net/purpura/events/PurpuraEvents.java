@@ -7,6 +7,9 @@ import net.minecraft.block.PortalSize;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemTier;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.RegistryKey;
@@ -24,6 +27,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -60,6 +64,12 @@ public class PurpuraEvents {
                     PurpuraPortalBlock.PORTAL_COOLDOWN.remove(e.player.getUUID());
                 }
             }
+
+            if(e.player.isInWaterOrRain()) {
+                if(!e.player.hasEffect(Effects.POISON)) {
+                    e.player.addEffect(new EffectInstance(Effects.POISON,20,2));
+                }
+            }
         }
     }
 
@@ -79,7 +89,6 @@ public class PurpuraEvents {
 
     @SubscribeEvent
     public static void biomeLoadingEvent(BiomeLoadingEvent e) {
-
         if(e.getCategory() == Biome.Category.NETHER) {
             List<Supplier<ConfiguredFeature<?,?>>> undergroundFeatures = e.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES);
             undergroundFeatures.add(() -> PurpuraFeatures.ORE_SOLARIUM);
