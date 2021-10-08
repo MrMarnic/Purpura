@@ -22,6 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.purpura.Purpura;
+import net.purpura.dimension.PurpuraTeleporter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,12 +104,16 @@ public class PurpuraPortalBlock extends Block{
                     return;
                 }
 
+
                 playerEntity.changeDimension(serverWorld, new ITeleporter() {
                     @Override
                     public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
                         return ITeleporter.super.placeEntity(entity, currentWorld, destWorld, yaw, repositionEntity);
                     }
                 });
+
+
+                //playerEntity.changeDimension(serverWorld, new PurpuraTeleporter(serverWorld));
 
                 playerEntity.setRespawnPosition(Purpura.PURPURA_DIMENSION,playerEntity.blockPosition(),playerEntity.yRot,true,false);
             }

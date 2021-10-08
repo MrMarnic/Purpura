@@ -1,6 +1,5 @@
 package net.purpura;
 
-import com.google.common.collect.Sets;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -10,9 +9,6 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.RegistryKey;
@@ -24,10 +20,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -42,11 +35,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.purpura.armor.PurpuraArmorMaterial;
 import net.purpura.armor.PurpuraItemTier;
 import net.purpura.blocks.*;
-import net.purpura.events.PurpuraForgeEvents;
-import net.purpura.features.PurpuraFeatures;
+import net.purpura.dimension.PurpuraPOI;
 import net.purpura.items.HammerItem;
 import net.purpura.packet.PurpuraPacketHandler;
-import net.purpura.tree.PurpuraTree;
 
 import java.util.HashMap;
 
@@ -161,6 +152,9 @@ public class Purpura {
 
     public static final RegistryKey<World> PURPURA_DIMENSION = RegistryKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(Purpura.MODID,"purpura"));
     public static final RegistryKey<Biome> PURPURA_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(Purpura.MODID,"purpura_biome"));
+
+    public static final DeferredRegister<PointOfInterestType> POIS = DeferredRegister.create(ForgeRegistries.POI_TYPES, MODID);
+    public static final RegistryObject<PurpuraPOI> POI_PURPURA_PORTAL = POIS.register("purpura_portal_poi", PurpuraPOI::new);
 
     public static final IBlockColor PURPURA_LEAVES_COLOR = new PurpuraLeavesBlockColor();
 
